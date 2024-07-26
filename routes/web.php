@@ -1,10 +1,9 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Auth::routes();
 
@@ -13,6 +12,9 @@ Auth::routes();
 require base_path('app\Modules\Routes\dashboard.php');
 // end dashboards routs
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// routes site
+require base_path('app\Modules\Routes\site.php');
+// end routes site
+
 
 

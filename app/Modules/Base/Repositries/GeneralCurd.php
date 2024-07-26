@@ -3,6 +3,7 @@
 namespace Modules\Base\Repositries;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 use Modules\Base\Interface\BaseInterface;
 
 class GeneralCurd implements BaseInterface
@@ -36,6 +37,25 @@ class GeneralCurd implements BaseInterface
        }
        $this->model->save();
        return $this->model;
+    }
+    public function storeMulti(array $data)
+    {
+        $table = $this->model->getTable();
+        return DB::table($table)->insert(
+            $data
+        );
+        // Check if the array contains multiple records
+//        if (isset($data[0]) && is_array($data[0])) {
+//            $models = [];
+//            foreach ($data as $record) {
+//                $model = $this->store($record); // Save each record
+//                $models[] = $model;
+//            }
+//            return $models;
+//        } else {
+//            // Save a single record
+//            return $this->store($data);
+//        }
     }
     public function update(array $data)
     {

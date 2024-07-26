@@ -43,7 +43,7 @@
                     </ul>
                 </li>
 
-                <li class="nav-item has-treeview @if(Request::is('dawry/*')) menu-open @endif">
+                <li class="nav-item has-treeview @if(Request::is('dawry/*') || Request::is('dawry')) menu-open @endif">
                     <a href="#" class="nav-link @if(Request::is('dawry'))active @endif">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
@@ -59,9 +59,61 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('dawry.create') }}" class="nav-link ">
+                            <a href="{{ route('dawry.create') }}" class="nav-link @if(Request::is('dawry/create'))active @endif">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>إضافة دورى</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+
+
+                <li class="nav-item has-treeview @if(Request::is('question/*') || Request::is('question')) menu-open @endif">
+                    <a href="#" class="nav-link @if(Request::is('question'))active @endif">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            الاسئله
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('question.index') }}" class="nav-link @if(Request::is('question'))active @endif">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>كل الاسئله</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('question.create') }}" class="nav-link @if(Request::is('question/create'))active @endif">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>إضافة سؤال</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+
+
+                <li class="nav-item has-treeview @if(Request::is('hezma/*') || Request::is('hezma')) menu-open @endif">
+                    <a href="#" class="nav-link @if(Request::is('hezma'))active @endif">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            الحزم
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('hezma.index') }}" class="nav-link @if(Request::is('hezma'))active @endif">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>كل الحزم</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('hezma.create') }}" class="nav-link @if(Request::is('hezma/create'))active @endif">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>إضافة حزمه</p>
                             </a>
                         </li>
 

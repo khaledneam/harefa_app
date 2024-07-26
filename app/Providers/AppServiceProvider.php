@@ -27,6 +27,9 @@ class AppServiceProvider extends ServiceProvider
             'Base' => base_path('app/Modules/Base/views'),
             'Dashboard' => base_path('app/Modules/Dashboard/views'),
             'Dawry' => base_path('app/Modules/Dawry/views'),
+            'Question' => base_path('app/Modules/Question/views'),
+            'Hezma' => base_path('app/Modules/Hezma/views'),
+            'Site' => base_path('app/Modules/Site/views'),
 
         ];
 

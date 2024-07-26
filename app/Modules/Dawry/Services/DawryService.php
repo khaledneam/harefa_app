@@ -43,6 +43,12 @@ class DawryService
             ->toJson();
 
     }
+    public function all()
+    {
+        return $this->dawryRepository->index();
+
+
+    }
 
     public function store(array $data)
     {
