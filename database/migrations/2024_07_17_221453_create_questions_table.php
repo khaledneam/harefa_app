@@ -16,9 +16,9 @@ return new class extends Migration
             $table->unsignedBigInteger('challenge_id');
             $table->foreign('challenge_id')->references('id')->on('challenges');
             $table->unsignedBigInteger('dawry_id');
-            $table->foreign('dawry_id')->references('id')->on('dawries');
+            //$table->foreign('dawry_id')->references('id')->on('dawries');
             $table->unsignedBigInteger('hezma_id');
-            $table->foreign('hezma_id')->references('id')->on('hezmas');
+          //  $table->foreign('hezma_id')->references('id')->on('hezmas');
             $table->string('question')->nullable();
             $table->text('photo')->nullable();
             $table->text('description')->nullable();
