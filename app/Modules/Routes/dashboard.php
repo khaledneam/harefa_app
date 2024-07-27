@@ -8,7 +8,7 @@ use Modules\Question\Controllers\QuestionController;
 
 Route::group(['middleware' => ['web', 'auth','admin']], function () {
     Route::get('/admin',function (){
-        return view('Dashboard::Dashboard');
+        return view('Dashboard::dashboard');
         // return view('Base::layout.dashboard.base');
     })->name('admin.dashboard');
 
