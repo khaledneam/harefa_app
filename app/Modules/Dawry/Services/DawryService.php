@@ -72,4 +72,9 @@ class DawryService
 
     }
 
+    public function count()
+    {
+        return $this->dawryRepository->count();
+    }
+
 }

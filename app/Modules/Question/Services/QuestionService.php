@@ -123,6 +123,10 @@ class QuestionService
 
     }
 
+    public function count()
+    {
+        return $this->questionRepository->count();
+    }
 
 
 

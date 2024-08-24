@@ -25,8 +25,16 @@ class VisitorService
         $datas =  $this->VisitorRepository->index();
 
         return DataTables::of($datas)->make(true);
-;
-           
+
+
+    }
+
+
+    public function count()
+    {
+
+        return $this->VisitorRepository->count();
+
     }
 
 

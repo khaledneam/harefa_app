@@ -1,16 +1,18 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Modules\Dashboard\Controllers\DashboardController;
 use Modules\Dawry\Controllers\DawryController;
 use Modules\Hezma\Controllers\HezmaController;
 use Modules\Question\Controllers\QuestionController;
 use Modules\Visitor\Controllers\VisitorController;
 
 Route::group(['middleware' => ['web', 'auth','admin']], function () {
-    Route::get('/admin',function (){
-        return view('Dashboard::dashboard');
-        // return view('Base::layout.dashboard.base');
-    })->name('admin.dashboard');
+    // Route::get('/admin',function (){
+    //     return view('Dashboard::dashboard');
+    //     // return view('Base::layout.dashboard.base');
+    // })
+    Route::get('/admin',[DashboardController::class,'index'])->name('admin.dashboard');
 
     // dawry routs
     Route::group(['prefix'=>'dawry'],function (){

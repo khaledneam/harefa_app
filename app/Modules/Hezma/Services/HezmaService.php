@@ -63,4 +63,9 @@ class HezmaService
         return $this->hezmaRepositry->find($id);
     }
 
+    public function count()
+    {
+        return $this->hezmaRepositry->count();
+    }
+
 }

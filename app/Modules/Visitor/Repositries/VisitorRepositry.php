@@ -14,4 +14,8 @@ class VisitorRepositry extends GeneralCurd
         $this->setModel($model);
     }
 
+
+   
+
+
 }

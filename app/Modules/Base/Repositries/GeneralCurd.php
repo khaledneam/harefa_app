@@ -29,6 +29,12 @@ class GeneralCurd implements BaseInterface
        return $this->model->orderBy('id','desc')->paginate(10);
     }
 
+
+    public function count()
+    {
+       return $this->model->count();
+    }
+
     public function store(array $data)
     {
        foreach ($data as $field => $value)
