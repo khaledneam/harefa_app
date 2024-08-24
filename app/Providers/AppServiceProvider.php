@@ -30,6 +30,7 @@ class AppServiceProvider extends ServiceProvider
             'Question' => base_path('app/Modules/Question/views'),
             'Hezma' => base_path('app/Modules/Hezma/views'),
             'Site' => base_path('app/Modules/Site/views'),
+            'Visitor' => base_path('app/Modules/Visitor/views'),
 
         ];
 

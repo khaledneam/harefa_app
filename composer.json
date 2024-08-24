@@ -6,9 +6,11 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "geoip2/geoip2": "^3.0",
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
         "laravel/ui": "^4.5",
+        "torann/geoip": "^3.0",
         "yajra/laravel-datatables": "11.0"
     },
     "require-dev": {

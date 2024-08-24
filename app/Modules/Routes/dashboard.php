@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Modules\Dawry\Controllers\DawryController;
 use Modules\Hezma\Controllers\HezmaController;
 use Modules\Question\Controllers\QuestionController;
-
+use Modules\Visitor\Controllers\VisitorController;
 
 Route::group(['middleware' => ['web', 'auth','admin']], function () {
     Route::get('/admin',function (){
@@ -44,6 +44,17 @@ Route::group(['middleware' => ['web', 'auth','admin']], function () {
         Route::post('/update/{id}',[QuestionController::class,'update'])->name('hezma.update');
     });
     // end start question modules
+
+
+    // visitor routes
+
+    Route::group(['prefix'=>'visitors'],function (){
+        Route::get('/',[VisitorController::class,'index'])->name('visitors.index');
+
+    });
+
+    // end visitor routes
+
 
 
 });

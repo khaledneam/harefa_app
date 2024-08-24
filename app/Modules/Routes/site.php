@@ -12,7 +12,7 @@ use Modules\Site\Controllers\SiteController;
 //
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::group(['prefix'=>''],function (){
+Route::group(['middleware' => ['track.visitors']],function (){
 
     Route::get('/',[SiteController::class,'index'])->name('site.index');
 
