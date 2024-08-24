@@ -4,6 +4,8 @@ namespace Modules\Dashboard\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Illuminate\Http\Request;
+use Modules\Dashboard\Services\DashboardService;
 use Modules\Dawry\Services\DawryService;
 use Modules\Hezma\Services\HezmaService;
 use Modules\Question\Services\QuestionService;
@@ -19,13 +21,17 @@ class DashboardController extends Controller
 
     private HezmaService $hezmaService;
 
-    public function __construct(VisitorService $visitorService , DawryService $dawryService , QuestionService $questionService , HezmaService $HezmaService)
+    private DashboardService $dashboardService;
+
+    public function __construct(VisitorService $visitorService , DawryService $dawryService , QuestionService $questionService , HezmaService $HezmaService,
+    DashboardService $dashboardService)
     {
 
         $this->visitorService = $visitorService;
         $this->dawryService = $dawryService;
         $this->questionService = $questionService;
         $this->hezmaService = $HezmaService;
+        $this->dashboardService = $dashboardService;
 
     }
 
@@ -41,6 +47,21 @@ class DashboardController extends Controller
 
         return view('Dashboard::dashboard',compact('users', 'visitors','dawry', 'questions','hezma'));
     }
+
+
+
+    public function dashboardCardsAjax(Request $request)
+    {
+        if(isset($request->days)) $days = $request->days;
+
+        else $days = 0;
+
+        $html = $this->dashboardService->dashboardCards($days);
+
+         return response()->json(['html' => $html]);
+
+    }
+
 
 
 }

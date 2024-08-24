@@ -2,6 +2,7 @@
 
 namespace Modules\Base\Repositries;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Modules\Base\Interface\BaseInterface;
@@ -88,4 +89,18 @@ class GeneralCurd implements BaseInterface
     {
         return $this->model->destroy($id);
     }
+
+
+    public function getLastCountByDays($days)
+    {
+
+        $daysAgo = Carbon::now()->subDays($days);
+
+
+        return $this->model->where('created_at','>=', $daysAgo)->count();
+    }
+
+
+
+
 }

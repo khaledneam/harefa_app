@@ -27,10 +27,10 @@
 <script src="https://cdn.rtlcss.com/bootstrap/v4.2.1/js/bootstrap.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="{{ url('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-<!-- ChartJS -->
+{{-- <!-- ChartJS -->
 <script src="{{ url('plugins/chart.js/Chart.min.js') }}"></script>
 <!-- Sparkline -->
-<script src="{{ url('plugins/sparklines/sparkline.js') }}"></script>
+<script src="{{ url('plugins/sparklines/sparkline.js') }}"></script> --}}
 <!-- JQVMap -->
 <script src="{{ url('plugins/jqvmap/jquery.vmap.min.js') }}"></script>
 <script src="{{ url('plugins/jqvmap/maps/jquery.vmap.world.js') }}"></script>
@@ -48,7 +48,7 @@
 <!-- AdminLTE App -->
 <script src="{{ url('dist/js/adminlte.js') }}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{ url('dist/js/pages/dashboard.js') }}"></script>
+{{-- <script src="{{ url('dist/js/pages/dashboard.js') }}"></script> --}}
 <!-- AdminLTE for demo purposes -->
 <script src="{{ url('dist/js/demo.js') }}"></script>
 

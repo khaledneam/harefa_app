@@ -85,5 +85,79 @@
 
     </div>
     <!-- /.row -->
+    <br />
+    <br />
+    <br /><br /><br />
+
+    <div class="container">
+        <div class="row">
+            <button type="button" class="btn btn-success col-md-3 m-2 report" data-days="1">24 hours</button>
+            <button type="button" class="btn btn-success col-md-3 m-2 report" data-days="7">7 days</button>
+            <button type="button" class="btn btn-success col-md-3 m-2 report" data-days="30">30 days</button>
+        </div>
+
+        <div class="">
+            <div class="analytics">
+
+            </div>
+        </div>
+    </div>
+@endsection
+
+
+
+@section('script')
+
+<script>
+    $(document).ready(function() {
+        $('.analytics').empty();
+
+       $('.report').click(function() {
+        $('.analytics').empty();
+        let days = $(this).data('days');
+
+        $.ajax({
+                    url: "{{  route('reports.dashboardCards') }}",
+                    type: 'GET',
+                    data: { days },
+                    dataType: 'json',
+
+                    success: function(response) {
+
+                       if (response.html)
+                       {
+                        $('.analytics').html(response.html);
+                       }
+
+
+                    },
+                    error: function(xhr) {
+                        $('.analytics').html('<p>An error occurred: ' + xhr.statusText + '</p>');
+                    }
+                });
+
+       })// end of report
+    });
+
+
+
+</script>
 
 @endsection
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

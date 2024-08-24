@@ -57,6 +57,15 @@ Route::group(['middleware' => ['web', 'auth','admin']], function () {
 
     // end visitor routes
 
+    // reports routes
+
+    Route::group(['prefix'=>'reports'],function (){
+        Route::get('/',[DashboardController::class,'dashboardCardsAjax'])->name('reports.dashboardCards');
+
+    });
+
+    // end report routes
+
 
 
 });
