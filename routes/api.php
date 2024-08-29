@@ -25,6 +25,7 @@ Route::group(['middleware' => ['validate.app_key_api']], function () {
     Route::group(['prefix'=>'user','middleware'=>'auth:api'],function (){
         Route::get('/me',[UserControllerAlias::class,'me']);
         Route::put('/update',[UserControllerAlias::class,'update']);
+        Route::post('/logout',[UserControllerAlias::class,'logout']);
 
     });
 

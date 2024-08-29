@@ -38,5 +38,11 @@ class UserController extends Controller
     {
        return $this->userService->update($request);
     }
+    public function logout()
+    {
+        auth('api')->logout();
+        return $this->returnSuccessResponse('Logged out successfully');
+
+    }
 
 }
