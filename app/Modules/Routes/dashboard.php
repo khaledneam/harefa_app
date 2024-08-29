@@ -48,6 +48,17 @@ Route::group(['middleware' => ['web', 'auth','admin']], function () {
     // end start question modules
 
 
+    // // start question modules
+    Route::group(['prefix'=>'players'],function (){
+        Route::get('/',[HezmaController::class,'index'])->name('players.index');
+        Route::get('/create',[HezmaController::class,'create'])->name('players.create');
+        Route::post('/store',[HezmaController::class,'store'])->name('players.store');
+        Route::get('/destroy/{id}',[HezmaController::class,'destroy'])->name('players.destroy');
+        Route::get('/edit/{id}',[QuestionController::class,'edit'])->name('players.edit');
+        Route::post('/update/{id}',[QuestionController::class,'update'])->name('players.update');
+    });
+    // end start question modules
+
     // visitor routes
 
     Route::group(['prefix'=>'visitors'],function (){

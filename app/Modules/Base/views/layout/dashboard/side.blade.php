@@ -121,8 +121,39 @@
                 </li>
 
 
-                {{-- reports --}}
-                <li class="nav-item has-treeview @if(Request::is('visitors/*') || Request::is('visitors')) menu-open @endif">
+                {{-- players --}}
+                <li class="nav-item has-treeview @if(Request::is('players/*') || Request::is('players')) menu-open @endif">
+                    <a href="#" class="nav-link @if(Request::is('players'))active @endif">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Players
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('players.index') }}" class="nav-link @if(Request::is('players'))active @endif">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>All Players </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('players.create') }}" class="nav-link @if(Request::is('players'))active @endif">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add Players </p>
+                            </a>
+                        </li>
+
+
+                    </ul>
+                </li>
+
+                {{-- end players --}}
+
+
+                 {{-- reports --}}
+                 <li class="nav-item has-treeview @if(Request::is('visitors/*') || Request::is('visitors')) menu-open @endif">
                     <a href="#" class="nav-link @if(Request::is('visitors'))active @endif">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
