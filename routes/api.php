@@ -1,19 +1,13 @@
 <?php
 
+use App\Modules\Hezma\Controllers\Api\HezmaController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Modules\Dawry\Controllers\Api\DawryController;
 use Modules\User\Controllers\Api\UserController as UserControllerAlias;
 
-//Route::get('/user', function (Request $request) {
-//    return $request->user();
-//})->middleware('auth:sanctum');
 
-//Route::get('/user', function (\App\Http\Requests\TestRequest $request) {
-//    $user = $request->get('ddd');
-//    return $user;
-//})->middleware('validate.app_key_api');
-
-
+// start user routes
 
 Route::group(['middleware' => ['validate.app_key_api']], function () {
    // login api
@@ -30,6 +24,12 @@ Route::group(['middleware' => ['validate.app_key_api']], function () {
     });
 
     // end user routs
+
+    // dawries
+
+    Route::get('/dawries',[DawryController::class,'index']);
+    Route::get('/hezma',[HezmaController::class,'index']);
+
 
 
 
