@@ -3,6 +3,8 @@
 namespace Modules\Dashboard\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Insights;
+use App\Models\Support;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Modules\Dashboard\Services\DashboardService;
@@ -59,6 +61,34 @@ class DashboardController extends Controller
         $html = $this->dashboardService->dashboardCards($days);
 
          return response()->json(['html' => $html]);
+
+    }
+
+
+    public function insightsHome(){
+        $insights = Insights::first();
+        return view('Dashboard::insights',compact('insights'));
+    }
+
+    public function storeInsightsHome(Request $request)
+    {
+        Insights::UpdateOrCreate(
+            ['question_count' =>$request->question_count ?? null,
+                'count_judgments' => $request->count_judgments ?? null,
+                'count_challenges'=>$request->count_challenges?? null,
+                'count_packages'=>$request->count_packages?? null,
+                'count_players'=>$request->count_players?? null,
+                'count_leagues'=>$request->count_leagues?? null
+            ]
+        );
+        return redirect()->back()->with('success', 'تم إضافة  بنجاح');
+    }
+
+
+    public function getSupport()
+    {
+        $supports = Support::paginate(2);
+        return view('Dashboard::support',compact('supports'));
 
     }
 

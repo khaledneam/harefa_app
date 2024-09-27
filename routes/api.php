@@ -1,10 +1,11 @@
 <?php
 
+use App\Modules\Base\Controller\ApiController;
 use App\Modules\Hezma\Controllers\Api\HezmaController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Modules\Dawry\Controllers\Api\DawryController;
 use Modules\User\Controllers\Api\UserController as UserControllerAlias;
+
 
 
 // start user routes
@@ -30,9 +31,12 @@ Route::group(['middleware' => ['validate.app_key_api']], function () {
     Route::get('/dawries',[DawryController::class,'index']);
     Route::get('/hezma',[HezmaController::class,'index']);
 
+    // home/insights
+    Route::get('home/insights',[ApiController::class,'getHomeInsights']);
+    Route::post('home/support',[ApiController::class,'storeSupport']);
 
 
 
-});
+});// end api key
 
 

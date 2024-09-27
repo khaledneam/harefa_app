@@ -77,7 +77,16 @@ Route::group(['middleware' => ['web', 'auth','admin']], function () {
 
     // end report routes
 
+        //insights
+    Route::group(['prefix'=>'insights'],function (){
+        Route::get('/',[DashboardController::class,'insightsHome'])->name('insights.home.dashboard');
+        Route::post('/store',[DashboardController::class,'storeInsightsHome'])->name('insights.home.dashboard.store');
 
+    });
+
+    Route::get('/support',[DashboardController::class,'getSupport'])->name('support.home.dashboard');
+
+    // end insights routes
 
 });
 
